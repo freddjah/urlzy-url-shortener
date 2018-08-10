@@ -1,0 +1,12 @@
+{
+  "test": {
+    "MONGODB_URI": "MONGODB_URI_HERE",
+    "APP_URL": "http://localhost:3000",
+    "PORT": 3000
+  },
+  "development": {
+    "MONGODB_URI": "MONGODB_URI_HERE",
+    "APP_URL": "http://localhost:3000",
+    "PORT": 3000
+  }
+}
