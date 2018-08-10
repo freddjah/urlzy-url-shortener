@@ -74,15 +74,15 @@ exports.deleteUrl = (request, response) => {
     shortUrl: request.params.url
   })
   .then((url) => {
-    if (url.creatorIP === visitorIP) {
+    if (url.creatorIP !== visitorIP) {
+      return response.redirect(`/?error=${SOMETHING_WENT_WRONG_ERROR.code}`)
+    } else {
       UrlModel
       .deleteOne({ _id: url._id })
       .then(() => {
         return response.redirect('/')
       })
-    }
-
-    response.redirect(`/?error=${SOMETHING_WENT_WRONG_ERROR.code}`)
+    }    
   })
   .catch((error) => {
     response.redirect(`/?error=${SOMETHING_WENT_WRONG_ERROR.code}`)
